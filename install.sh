@@ -6,7 +6,7 @@
 # ==============================================================================
 
 REPO_URL="https://github.com/jojeho/dotfiles.git"
-DOTFILES_DIR="$HOME/.dotfiles"
+DOTFILES_DIR="$HOME/dotfiles"
 
 # 색상 유틸리티
 info() { echo -e "\033[34m[INFO]\033[0m $1"; }
