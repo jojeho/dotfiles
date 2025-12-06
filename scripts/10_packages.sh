@@ -12,7 +12,7 @@ PACKAGES=(
     "stow"
     "curl"
     "fzf"
-    # "tmux"
+    "tmux"
     # "neovim"
 )
 

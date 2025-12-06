@@ -4,10 +4,11 @@
 #  Dotfiles Main Installer
 # ==============================================================================
 
-REPO_URL="https://github.com/jojeho/dotfiles.git"
-DOTFILES_DIR="$HOME/dotfiles"
+PACKAGES=('stow' 'neovim' 'fzf' 'bat') # 색상 유틸리티
 
-# 색상 유틸리티
+REPO_URL="https://github.com/jojeho/dotfiles.git"
+DOTFILES_DIR="$HOME/.dotfiles"
+
 info() { echo -e "\033[34m[INFO]\033[0m $1"; }
 error() { echo -e "\033[31m[ERROR]\033[0m $1"; }
 
@@ -37,36 +38,21 @@ bootstrap_repo() {
 # 2. 스크립트 순차 실행
 run_scripts() {
     info "설정 스크립트를 실행합니다..."
-    
-    # scripts 폴더 내의 .sh 파일들을 번호 순서대로 실행
-    for script in "$DOTFILES_DIR/scripts/"*.sh; do
-        # utils.sh는 실행용이 아니므로 건너뜀
-        if [ "$(basename "$script")" == "utils.sh" ]; then continue; fi
-
-        if [ -f "$script" ]; then
-            filename=$(basename "$script")
-            info "Running: $filename"
-            
-            # 실행 권한 부여
-            chmod +x "$script"
-            
-            # 스크립트 실행
-            /bin/bash "$script"
-            
-            if [ $? -ne 0 ]; then
-                error "$filename 실행 중 오류 발생! 중단합니다."
-                exit 1
-            fi
-        fi
+    for name in "${PACKAGES[@]}"; do
+	brew install "$name"
+	info "${name} 설치 되었어요" 	
     done
+}
+
+run_stow(){
+	info "stow link to parent folder"
+	stow -R .
 }
 
 main() {
     bootstrap_repo
     run_scripts
-    
-    info "모든 설치가 완료되었습니다! 쉘을 재시작합니다."
-    exec zsh -l
+    run_stow
 }
 
 main
