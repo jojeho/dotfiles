@@ -1,13 +1,10 @@
 #!/bin/bash
 
-# --- [핵심] Homebrew 경로 자동 로드 함수 ---
+# [공통 함수] Brew 경로 로드
+# 이 함수를 호출하면 현재 스크립트에서 brew 명령어를 쓸 수 있게 됩니다.
 load_brew() {
-    # 이미 brew 명령어가 되면 통과
-    if command -v brew >/dev/null 2>&1; then
-        return
-    fi
+    if command -v brew >/dev/null 2>&1; then return; fi
 
-    # OS별 표준 설치 경로 확인 및 로드
     if [ -d "/home/linuxbrew/.linuxbrew/bin" ]; then
         eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     elif [ -d "/opt/homebrew/bin" ]; then
@@ -17,5 +14,5 @@ load_brew() {
     fi
 }
 
-# 파일이 로드되자마자 실행
+# 로드되자마자 실행 (모든 스크립트가 이 파일을 source 하면 즉시 해결됨)
 load_brew
