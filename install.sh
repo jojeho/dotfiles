@@ -4,7 +4,7 @@
 #  Dotfiles Main Installer
 # =============================================================================
 
-PACKAGES=('gcc' 'stow' 'neovim' 'tmux' 'xclip' 'fzf' 'fzf-git' 'delta' 'eza' 'bat' 'thefuck' 'telescope' 'gemini-cli') # 색상 유틸리티
+PACKAGES=('gcc' 'stow' 'neovim' 'tmux' 'xclip' 'fzf' 'fzf-git' 'delta' 'eza' 'bat' 'thefuck' 'gemini-cli') # 색상 유틸리티
 
 REPO_URL="https://github.com/jojeho/dotfiles.git"
 DOTFILES_DIR="$HOME/.dotfiles"
