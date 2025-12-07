@@ -49,6 +49,27 @@ run_stow(){
 	stow -R .
 }
 
+install_build_tools() {
+    info "필수 빌드 도구를 설치합니다..."
+    if [ "$(uname)" == "Linux" ]; then
+        if command -v apt-get >/dev/null 2>&1; then
+            # Debian/Ubuntu
+            info "apt를 사용하여 build-essential을 설치합니다."
+            sudo apt-get update && sudo apt-get install -y build-essential
+        elif command -v dnf >/dev/null 2>&1; then
+            # Fedora/CentOS
+            info "dnf를 사용하여 'Development Tools'를 설치합니다."
+            sudo dnf groupinstall -y "Development Tools"
+        elif command -v pacman >/dev/null 2>&1; then
+            # Arch Linux
+            info "pacman를 사용하여 base-devel을 설치합니다."
+            sudo pacman -S --noconfirm base-devel
+        else
+            error "배포판에 맞는 빌드 도구 설치 명령어를 찾지 못했습니다. 수동 설치가 필요합니다."
+        fi
+    fi
+}
+
 run_brew(){
  
 echo ">>> [00] Homebrew 설치 및 설정..."
@@ -97,6 +118,7 @@ fi
 }
 main() {
     bootstrap_repo
+    install_build_tools
     run_brew
     run_scripts
     run_stow
