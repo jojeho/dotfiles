@@ -1,5 +1,9 @@
 # install 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/jojeho/dotfiles/main/install.sh)"
+
+git clone 할때는 반드시 ./dotfiles로 해야한다 
+ 
+
 # My Dev Environment Files 🚀
 
 **IMPORTANT:** These are primarily meant for inspiration. I wouldn't just blindly use them. Proceed at your own risk!
