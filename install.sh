@@ -47,7 +47,7 @@ run_scripts() {
 run_stow(){
 	info "stow link to parent folder"
 	brew install stow
-	stow -R .
+	stow  .
 }
 
 install_build_tools() {
