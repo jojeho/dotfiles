@@ -4,7 +4,7 @@
 #  Dotfiles Main Installer
 # =============================================================================
 
-#PACKAGES=( 'gcc'  'neovim' 'zellij'  'fzf'  'delta' 'bat' 'thefuck'  'gemini-cli' ) # 색상 유틸리티
+#PACKAGES=( 'gcc' 'stow' 'neovim' 'zellij'  'fzf'  'delta' 'bat' 'thefuck'  'gemini-cli' ) # 색상 유틸리티
 REPO_URL="https://github.com/jojeho/dotfiles.git"
 DOTFILES_DIR="$HOME/.dotfiles"
 
@@ -45,8 +45,7 @@ run_scripts() {
 
 run_stow(){
 	info "stow link to parent folder"
-	brew install stow
-	stow  .
+	stow  -R .
 }
 
 install_build_tools() {
