@@ -11,7 +11,6 @@ DOTFILES_DIR="${HOME}/.dotfiles"
 
 # 필요 패키지 목록 (원하는 대로 수정)
 PACKAGES=(
-  gcc
   stow
   neovim
   zellij
