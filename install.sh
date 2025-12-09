@@ -259,7 +259,7 @@ main() {
   install_build_tools
   ensure_brew
   install_packages
-  #link_dotfiles
+  link_dotfiles
   info "모든 작업이 완료되었습니다 🎉"
 }
 
