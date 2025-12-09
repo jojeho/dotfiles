@@ -15,9 +15,7 @@ git clone 할때는 반드시 ./dotfiles로 해야한다
 After recommendations from you guys, I've swapped out Alacritty for [WezTerm](https://wezfurlong.org/wezterm/index.html)!
 Everything is the same except the Alacritty config file, you can swap it out with this [~/.wezterm.lua](.wezterm.lua) file and everything should look and work very similar to Alacritty!
 
-🏼 ✍Blog Post Step-by-Step Guide: [How To Make Your Boring Mac Terminal Amazing With Alacritty](https://josean.com/posts/how-to-setup-alacritty-terminal)
 
-📹 Youtube Guide: [How To Make Your Boring Mac Terminal Amazing With Alacritty](https://youtu.be/uOnL4fEnldA)
 
 You'll also need to install extra cli tools as described in this blog post and video:
 
@@ -48,8 +46,7 @@ You'll also need to install extra cli tools as described in this blog post and v
 
 If you are coming from my full neovim setup video with packer, that config is found here: [Packer Config](https://github.com/josean-dev/dev-environment-files/tree/packer-nvim-setup)
 
-✍🏼 Blog Post: [How I Setup Neovim On My Mac To Make It AMAZING In 2024](https://josean.com/posts/how-to-setup-neovim-2024)
-📹 Complete Neovim Setup Guide: [How I Setup Neovim On My Mac To Make It AMAZING In 2024](https://youtu.be/6pAG3BHurdM)
+
 
 _If you clone the repo into your machine and use the config by copying .config/nvim to your home folder, wait for the plugins, language servers and parsers to install with lazy.nvim, Mason and nvim-treesitter.
 If you are opening a lua file or another file I have language servers configured for, like html, css or javascript/typescript, you might also get an error saying that the server failed to start. This is because Mason hasn't installed it yet. Press enter to continue, Mason will automatically install it._
@@ -60,14 +57,14 @@ If you are opening a lua file or another file I have language servers configured
 
 ### Setup Requires
 
-- True Color Terminal Like: [iTerm2](https://iterm2.com/)
+- True Color Terminal
 - [Neovim](https://neovim.io/) (Version 0.9 or Later)
 - [Nerd Font](https://www.nerdfonts.com/) - I use Meslo Nerd Font
 - [Ripgrep](https://github.com/BurntSushi/ripgrep) - For Telescope Fuzzy Finder
-- XCode Command Line Tools
+
 - If working with typescript/javascript and the typescript language server like me. You might need to install node/npm.
 
-If you're on mac, like me, you can install iTerm2, Neovim, Meslo Nerd Font, Ripgrep and Node with homebrew.
+
 
 Nerd font:
 

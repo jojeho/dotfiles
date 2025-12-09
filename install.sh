@@ -15,6 +15,11 @@ PACKAGES=(
   neovim
   zellij
   fzf
+  eza 
+  zsh
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  zoxide
   delta
   bat
   thefuck
@@ -40,7 +45,6 @@ detect_os() {
   uname_s="$(uname -s)"
   case "${uname_s}" in
     Linux)   echo "Linux" ;;
-    Darwin)  echo "Darwin" ;;
     *)       echo "Unknown" ;;
   esac
 }
@@ -72,10 +76,7 @@ ensure_git() {
   os="$(detect_os)"
   pkg="$(detect_pkg_manager)"
 
-  if [ "${os}" = "Darwin" ]; then
-    info "macOS: Xcode Command Line Tools 설치 시도..."
-    xcode-select --install || warn "xcode-select 실패. 수동으로 Git을 설치해야 할 수 있습니다."
-  elif [ "${os}" = "Linux" ]; then
+  if [ "${os}" = "Linux" ]; then
     case "${pkg}" in
       apt)
         sudo apt-get update
@@ -158,8 +159,6 @@ detect_brew_bin() {
 
   # 대표적인 위치 확인
   for path in \
-    /opt/homebrew/bin/brew \
-    /usr/local/bin/brew \
     /home/linuxbrew/.linuxbrew/bin/brew
   do
     if [ -x "${path}" ]; then
@@ -223,6 +222,18 @@ install_packages() {
   done
 }
 
+install_fzf_git() {
+  info "fzf-git.sh를 설치하거나 업데이트합니다..."
+  local fzf_git_dir="${HOME}/fzf-git.sh/fzf-git.sh"
+  if [ -d "${fzf_git_dir}" ]; then
+    info "기존 fzf-git.sh 저장소가 있어 업데이트를 진행합니다."
+    git -C "${fzf_git_dir}" pull --ff-only
+  else
+    info "fzf-git.sh 저장소를 클론합니다."
+    git clone https://github.com/junegunn/fzf-git.sh "${fzf_git_dir}"
+  fi
+}
+
 # ------------------------------------------------------------------------------
 #  Dotfiles stow 링크
 # ------------------------------------------------------------------------------
@@ -244,7 +255,7 @@ link_dotfiles() {
 
   # 기본: 현재 디렉토리의 모든 stow 타깃을 링크
   # 필요하다면 서브 디렉토리별로 따로 호출할 수도 있음 (e.g. stow zsh git nvim)
-  stow -t ~ nvim zellij 
+  stow -t ~ nvim zellij zshrc 
 
   info "dotfiles 링크가 완료되었습니다."
 }
@@ -259,6 +270,7 @@ main() {
   install_build_tools
   ensure_brew
   install_packages
+  install_fzf_git
   link_dotfiles
   info "모든 작업이 완료되었습니다 🎉"
 }
