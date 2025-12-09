@@ -37,56 +37,6 @@ You'll also need to install extra cli tools as described in this blog post and v
 ### Relevant Files
 
 - [.zshrc](.zshrc) - Zsh Shell Configuration
-- [coolnight.toml](.config/alacritty/themes/themes/coolnight.toml) - Alacritty Color Scheme
-
-# Tmux Setup
-
-✍🏼 Blog Post: [How To Use and Configure Tmux Alongside Neovim](https://josean.com/posts/tmux-setup)
-
-📹 Youtube Guide: [How I Setup And Use Tmux Alongside Neovim for an Awesome Dev Workflow](https://youtu.be/U-omALWIBos)
-
-### Relevant Files
-
-- [.tmux.conf](.tmux.conf) - Tmux Configuration File
-
-# Yabai Tiling Window Manager Setup
-
-✍🏼 Blog Post: [How To Setup And Use The Yabai Tiling Window Manager On Mac](https://josean.com/posts/yabai-setup)
-
-📹 Youtube Guide: [How To Setup And Use The Yabai Tiling Window Manager On Mac](https://youtu.be/k94qImbFKWE)
-
-### Relevant Files
-
-- [.config/yabai/yabairc](.config/yabai/yabairc)
-- [.config/skhd/skhdrc](.config/skhd/skhdrc)
-
-# Aerospace Tiling Window Manager Setup
-
-✍🏼 Blog Post: [How To Setup And Use The Aerospace Tiling Window Manager On macOS](https://josean.com/posts/how-to-setup-aerospace-tiling-window-manager)
-
-📹 Youtube Guide: [How To Setup And Use The Aerospace Tiling Window Manager On macOS](https://youtu.be/-FoWClVHG5g)
-
-### Relevant Files
-
-- [.config/aerospace/aerospace.toml](.config/aerospace/aerospace.toml)
-
-# Sketchybar Custom Menu Bar Setup
-
-✍🏼 Blog Post: [How To Make An Amazing Custom Menu Bar For Your Mac With Sketchybar](https://josean.com/posts/sketchybar-setup)
-
-📹 Youtube Guide: [How To Make An Amazing Custom Menu Bar For Your Mac With Sketchybar](https://youtu.be/k94qImbFKWE)
-
-### Setup Requires
-
-- sketchybar: `brew tap FelixKratz/formulae` and `brew install sketchybar`
-- jq (json command line processor): `brew install jq`
-- SF Pro Font: `brew tap homebrew/cask-fonts` and `brew install font-sf-pro`
-- SF Symbols: `brew install --cask sf-symbols`:
-- Sketchybar App Font:
-
-```bash
-`curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v1.0.16/sketchybar-app-font.ttf -o $HOME/Library/Fonts/sketchybar-app-font.ttf`
-```
 
 ### Relevant Files
 
@@ -119,12 +69,6 @@ If you are opening a lua file or another file I have language servers configured
 
 If you're on mac, like me, you can install iTerm2, Neovim, Meslo Nerd Font, Ripgrep and Node with homebrew.
 
-iTerm2:
-
-```bash
-brew install --cask iterm2
-```
-
 Nerd font:
 
 ```bash
@@ -144,16 +88,8 @@ Ripgrep:
 brew install ripgrep
 ```
 
-Node/Npm:
-
 ```bash
 brew install node
-```
-
-For XCode Command Line Tools do:
-
-```bash
-xcode-select --install
 ```
 
 ## Plugins
@@ -169,10 +105,6 @@ xcode-select --install
 #### Preferred Colorscheme
 
 - [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim) - tokyonight colorscheme (I modified some colors it in config)
-
-#### Navigating Between Neovim Windows and Tmux
-
-- [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator) - navigate b/w nvim splits & tmux panes with CTRL+h,j,k,l
 
 #### Essentials
 
