@@ -244,7 +244,7 @@ link_dotfiles() {
 
   # 기본: 현재 디렉토리의 모든 stow 타깃을 링크
   # 필요하다면 서브 디렉토리별로 따로 호출할 수도 있음 (e.g. stow zsh git nvim)
-  stow -R .
+  stow -t ~ nvim zellij 
 
   info "dotfiles 링크가 완료되었습니다."
 }
